@@ -8,7 +8,7 @@ Gentee is a strongly typed procedural language. First of all, it is designed to 
 
 **GitHub repository:** [**https://github.com/gentee/gentee**](https://github.com/gentee/gentee)  
 **Download for Linux, macOS, Windows:** [**https://github.com/gentee/gentee/releases**](https://github.com/gentee/gentee/releases)  
-Documentation GitHub repository: [https://github.com/gentee/gentee.github.io](https://github.com/gentee/gentee.github.io)  
+Documentation GitHub repository: [https://github.com/gentee/docs-gentee](https://github.com/gentee/docs-gentee)  
 Development language: Go
 
 ## Documentation
