@@ -100,10 +100,11 @@ The _OpenWith_ function opens a file, directory, or URI using the specified appl
 
 ### Run\(str cmd, str params...\)
 
-__Optional parameters__  
-* __buf stdin__ - the buffer that will be passed to the application as standard input.
-* __buf stdout__ - the buffer into which the standard output of the application will be written.
-* __buf stderr__ - the buffer into which the standard error output of the application will be written.
+**Optional parameters**
+
+* **buf stdin** - the buffer that will be passed to the application as standard input.
+* **buf stdout** - the buffer into which the standard output of the application will be written.
+* **buf stderr** - the buffer into which the standard error output of the application will be written.
 
 The _Run_ function starts the specified _cmd_ program with parameters and waits for it to finish. Additionally, you can override the standard input and output.
 
@@ -119,8 +120,9 @@ The _Run_ function starts the specified _cmd_ program with parameters and waits 
 
 ### Start\(str cmd, str params...\)
 
-__Optional parameters__  
-* __buf stdin__ - the buffer that will be passed to the application as standard input.
+**Optional parameters**
+
+* **buf stdin** - the buffer that will be passed to the application as standard input.
 
 The _Start_ function starts the specified program _cmd_ with parameters and runs the script further. Additionally, you can pass the buffer as standard input.
 
@@ -131,3 +133,4 @@ The _Start_ function starts the specified program _cmd_ with parameters and runs
         ./myscript2.sh`
     ))
 ```
+

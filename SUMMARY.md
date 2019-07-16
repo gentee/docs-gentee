@@ -18,6 +18,7 @@
   * [Characters](stdlib/char.md)
   * [Console](stdlib/console.md)
   * [Context](stdlib/context.md)
+  * [Cryptography](stdlib/cryptography.md)
   * [Files](stdlib/file.md)
   * [Float numbers](stdlib/float.md)
   * [Integer](stdlib/integer.md)
