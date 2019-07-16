@@ -11,11 +11,6 @@ Gentee is a strongly typed procedural language. First of all, it is designed to 
 Documentation GitHub repository: [https://github.com/gentee/docs-gentee](https://github.com/gentee/docs-gentee)  
 Development language: Go
 
-## Documentation
-
-* [Gentee Programming language \(English\)](https://docs.gentee.org)
-* [Язык программирования Gentee \(Russian\)](https://ru.gentee.org)
-
 ```go 
 run : ||"Hello, world!\r\n"
 ```
@@ -28,3 +23,7 @@ run {
     Println(`Hello, %{ ?(*name>0, name, `world`) }!` )
 }
 ```
+## Documentation
+
+* [Gentee Programming language \(English\)](https://docs.gentee.org)
+* [Язык программирования Gentee \(Russian\)](https://ru.gentee.org)
