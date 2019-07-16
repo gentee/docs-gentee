@@ -16,3 +16,15 @@ Development language: Go
 * [Gentee Programming language \(English\)](https://docs.gentee.org)
 * [Язык программирования Gentee \(Russian\)](https://ru.gentee.org)
 
+```go 
+run : ||"Hello, world!\r\n"
+```
+```go 
+run : $ echo "Hello, world!"
+```
+```go 
+run {
+    str name = ReadString(`Enter your name: `)
+    Println(`Hello, %{ ?(*name>0, name, `world`) }!` )
+}
+```
