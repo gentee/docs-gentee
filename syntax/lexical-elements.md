@@ -2,7 +2,7 @@
 
 Source code is UTF-8 encoded. The syntax is specified using Extended Backus-Naur Form.
 
-```text
+```go
 newline        = 0x0A
 unicode_char = /* Unicode code point */
 unicode_linechar  = /* Unicode code point except newline */
@@ -28,7 +28,7 @@ General comments can appear anywhere. Such comment begins with a forward slash/a
 `# header`  
 At the beginning of the script, you can specify the parameters for use in other programs. Such comments should must be listed one after the other in each line from the beginning of the script. If you do not want to specify '\#' at the beginning of each line, then insert **\#\#\#** before and after the text.
 
-```text
+```go
 #!/usr/local/bin/gentee
 # the first line can be used to run the script on Linux.
 ###
@@ -44,7 +44,7 @@ The new line character is the separating character between expressions and state
 **:**  
 A colon is replaced with an opening curly brace and a closing curly brace is added at the end of the current line.
 
-```text
+```go
 // These examples are equivalent
 if a == 10 : a = b + c; c = d + e 
 
@@ -59,7 +59,7 @@ if a == 10
 
 Identifiers are names that are used to refer to variables, types, functions, constants etc. An identifier is a sequence of letters and digits. The first character of the identifier must be a letter.
 
-```text
+```go
 identifier = letter { letter | unicode_digit }
 IdentifierList = identifier { identifier }
 ```
@@ -70,15 +70,11 @@ There are some predeclared identifiers and keywords. The following words are res
 
 **catch const elif else false for func go if in local recover retry return run struct true try while**
 
-#### Predeclared stdlib types
-
-**arr bool buf char error finfo float int map range set str time trace thread**
-
 ### Literals
 
 An integer literal is a sequence of digits representing an integer constant.
 
-```text
+```go
 decimal = ( "1" … "9" ) { decimal_digit } 
 octal = "0" { octal_digit } .
 hex = "0" ( "x" | "X" ) hex_digit { hex_digit } 
@@ -86,7 +82,7 @@ integer = decimal | octal | hex
 float = decimals "." [ decimals ] [ exponent ] | decimals exponent
 ```
 
-```text
+```go
 0x34Fab
 0722
 19023862
@@ -99,14 +95,14 @@ float = decimals "." [ decimals ] [ exponent ] | decimals exponent
 
 A _char_ literal represents an integer value identifying a Unicode code point. You can specify one character or a sequence of characters beginning with a backslash enclosed in single quotes. Multi-character sequences can be like these:
 
-```text
+```go
 '\r',  '\n',  '\t', '\"', '\'', '\\' 
 \xa5 \x2B  (\x + two hex_digit)
 \u03B1  (\u + four hex_digit)
 \0371  (\0 + three octal_digit)
 ```
 
-```text
+```go
 byteVal  = octalStr | hexStr .
 octalStr = `\` "0" octal_digit octal_digit octal_digit .
 hexStr   = `\` "x" hex_digit hex_digit .
@@ -118,7 +114,7 @@ charLit         = "'" ( unicode_char | uShort | uLong | escapedChar | byteVal | 
 
 There are two types of string literals. 1. A string in backquotes can contain any characters. If you want to specify a backquote, then you need to double it. 2. A double-quoted string can also contain any characters \(including a line break\), but it has a backslash control character. You can specify the following characters after a backslash:
 
-```text
+```go
 \a   U+0007 alert or bell  
 \b   U+0008 backspace  
 \f   U+000C form feed  
@@ -130,7 +126,7 @@ There are two types of string literals. 1. A string in backquotes can contain an
 \"   U+0022 double quote
 ```
 
-```text
+```go
 stringLit         = stringBackQuote | stringDoubleQuote
 stringBackQuote   = "`" { unicode_char | "%{" Expression "}" | "${" identifier "}" } "`"
 stringDoubleQuote = `"` { unicode_char | uShort | uLong | escapedChar | byteVal | "\{" Expression "}" } `"`
@@ -138,7 +134,7 @@ stringDoubleQuote = `"` { unicode_char | uShort | uLong | escapedChar | byteVal 
 
 You can insert expressions into any type of string. In this case, the result type of expression can be any, if there is a corresponding function that can convert this value to a string. Expressions must be enclosed in curly brackets with the preceding **%** sign \(for backquotes\) or a backslash \(for double quotes\).
 
-```text
+```go
 `10+20 equals %{10 + 20}. User name is "%{USERNAME}"`
 "This is the first line.\r\nThis is \{ `the` + `second`} line."
 ```

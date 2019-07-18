@@ -4,11 +4,13 @@
 
 A type determines a set of values that have the same operations and functions specific for those values. A type is denoted by a type name. A map is a group of elements of one type, indexed by a set of unique string keys. By default, _arr_ and _map_ arrays consist of strings, but you can specify any nested types by separating them with a dot. Note that variables of types **arr**, **map**, **buf**, **set** and types that has been defined with **struct**, unlike other types, are passed by reference, not by value. This means that if you change the value of this parameter inside the function, you will change the original variable.
 
-```text
+```go
 TypeName  = identifier { "." identifier }
 ```
 
 The Gentee language predeclares the following types.
+
+**arr bool buf char error finfo float int map range set str time trace thread**
 
 | Name | Description | Values | Initial value |
 | :--- | :--- | :--- | :--- |
@@ -22,7 +24,7 @@ The Gentee language predeclares the following types.
 | **buf** | array of bytes | array of uint8 | empty array |
 | **set** | set of bool | array of uint64 with 1 bit per value | empty set |
 
-```text
+```go
 arr.map.int a
 map.arr.str b   // the same as map.arr b
 map.bool c
@@ -41,7 +43,7 @@ There is no automatic type casting in Gentee . For basic types, there are functi
 | char |  |  |  |  |  |
 | float | float\(10\) |  | float\("-2E-34"\) |  |  |
 
-```text
+```go
 int(false) // = 0           
 int(true) // = 1    
 bool(0) // = false  
@@ -55,13 +57,13 @@ bool("not empty, zero or false string")   //=true
 
 You can define a structure type by using the **struct** keyword. Specify a type name after the keyword, and list the field types and names inside the curly braces. All fields in a variable of a structured type are automatically initialized. All variables of these types are passed by reference, rather than by value, when passed to functions. To assign or get a field value, specify its name after the dot.
 
-```text
+```go
 structDecl = "struct" identifier "{" FieldDecl { newline  FieldDecl } "}"
 FieldDecl = TypeName identifier
 FieldExpr = PrimaryExpr "." identifier
 ```
 
-```text
+```go
 struct my : int ID; str name
 struct myStruct {
       int ID
@@ -80,7 +82,7 @@ run int {
 
 The Gentee language allows you to work with function identifiers. You can get the ID of the function, pass it as a parameter and call the corresponding function. To work with function identifiers, you must define a function type using the **fn** keyword and specify the types of parameters and return value. To get the function ID, specify **&function\_name.fn\_type**. The function identifier can be passed in parameters or assigned to a variable of the corresponding _fn_ type. To call a function by its identifier, it is sufficient to specify the variable name and parentheses with parameters, as when calling a function by name.
 
-```text
+```go
 fnDecl = "fn" FnName [FnParameters] [ TypeName ]
 FnName = identifier
 FnParameters     = "(" [ FnParameterList ] ")"
@@ -88,7 +90,7 @@ FnParameterList  = TypeName { [","] TypeName }
 FnIdent = "&" FuncName "." FnName
 ```
 
-```text
+```go
 fn bin( int int ) int
 func add( int i, int j ) int : return i + j
 func sub( int i, int j ) int : return i - j
