@@ -6,6 +6,9 @@ nav: toc
 
 Operators and functions for working with map arrays \(**map** type\) are described here. **map.typename** means that you can specify any type name but in the case of the binary operator this type must be the same in both maps.
 
+* [Del\( map.typename m, str key \) map.typename](map.md#del-map-typename-m-str-key-map-typename)
+* [IsKey\( map.typename m, str key \) bool](map.md#iskey-map-typename-m-str-key-bool)
+
 ## Operators
 
 | Operator | Result | Description |
@@ -15,3 +18,12 @@ Operators and functions for working with map arrays \(**map** type\) are describ
 | map.typename **&=** map.typename | map.typename | Creates a clone of the map. The new variable will work with the same data set. |
 | map.typename **\[** str **\]** | typename | Sets/gets a map value by key. |
 
+## Functions
+
+### Del\( map.typename m, str key \) map.typename
+
+The _Del_ function deletes the specified key and its value from the _map_ array. The _m_ parameter is returned.
+
+### IsKey\( map.typename m, str key \) bool
+
+The _IsKey_ function returns _true_ if there is a value with the specified key in the _map_ and _false_, otherwise.
