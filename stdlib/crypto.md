@@ -2,8 +2,8 @@
 
 The cryptographic functions are described below.
 
-* [Md5\( buf \| str data \) buf](cryptography.md#md-5-buf-or-str-data-buf)
-* [Sha256\( buf \| str data \) buf](cryptography.md#sha-256-buf-or-str-data-buf)
+* [Md5\( buf \| str data \) buf](crypto.md#md-5-buf-or-str-data-buf)
+* [Sha256\( buf \| str data \) buf](crypto.md#sha-256-buf-or-str-data-buf)
 
 ## Functions
 
