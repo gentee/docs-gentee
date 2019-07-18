@@ -6,7 +6,7 @@ The functions for network/internet operations are described here.
 * [HTTPGet\( str url \) buf](network.md#httpget-str-url-buf)
 * [HTTPPage\( str url \) str](network.md#httppage-str-url-str)
 
-## Functions for working with HTTP
+## HTTP functions
 
 ### Download\( str url, str filename \) int
 
