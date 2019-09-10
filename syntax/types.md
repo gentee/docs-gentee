@@ -82,6 +82,11 @@ run int {
 
 The Gentee language allows you to work with function identifiers. You can get the ID of the function, pass it as a parameter and call the corresponding function. To work with function identifiers, you must define a function type using the **fn** keyword and specify the types of parameters and return value. To get the function ID, specify **&function\_name.fn\_type**. The function identifier can be passed in parameters or assigned to a variable of the corresponding _fn_ type. To call a function by its identifier, it is sufficient to specify the variable name and parentheses with parameters, as when calling a function by name.
 
+The function identifier does not apply to the following functions:
+* Built-in functions.
+* Functions with a variable number of parameters.
+* Functions with optional variables.
+
 ```go
 fnDecl = "fn" FnName [FnParameters] [ TypeName ]
 FnName = identifier
