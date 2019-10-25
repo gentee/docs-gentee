@@ -40,7 +40,7 @@ func main() {
 
 ## Bytecode Execution
 
-The ready byte code of the script is stored in a structure of the **Exec** type. To execute it, call the **Run** method. The parameter of the type [**Settings**] (reference.md#type-settings) allows you to pass command line parameters and specify additional settings for the virtual machine.
+The ready byte code of the script is stored in a structure of the **Exec** type. To execute it, call the **Run** method. The parameter of the type [**Settings**](reference.md#type-settings) allows you to pass command line parameters and specify additional settings for the virtual machine.
 
 ```go
 package main
