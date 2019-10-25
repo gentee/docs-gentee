@@ -32,6 +32,10 @@
   * [Sets](stdlib/sets.md)
   * [Strings](stdlib/string.md)
   * [Time](stdlib/time.md)
+* [Go Integration](golang/README.md)
+  * [Reference](golang/reference.md)
+  * [Compilation and execution](golang/howtouse.md)
+  * [Advanced features](golang/customize.md)
 
 ## Change language
 
