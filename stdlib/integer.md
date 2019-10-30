@@ -6,6 +6,7 @@ nav: toc
 
 Operators and functions for working with integers of **int** type are described here.
 
+* [Abs\( int i \) int](integer.md#abs-int-i-int)
 * [bool\( int i \) bool](integer.md#bool-int-i-bool)
 * [float\( int i \) float](integer.md#float-int-i-float)
 * [Max\( int l, int r \) int](integer.md#max-int-l-int-r-int)
@@ -48,6 +49,11 @@ Operators and functions for working with integers of **int** type are described 
 | int **&gt;&gt;=** int | int | Right shift AND assignment operator. |
 
 ## Functions
+
+
+### Abs\(int i\) int
+
+The _Abs_ function returns the absolute value of the number.
 
 ### bool\(int i\) bool
 
