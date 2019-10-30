@@ -1,7 +1,3 @@
----
-nav: toc
----
-
 # Integer
 
 Operators and functions for working with integers of **int** type are described here.

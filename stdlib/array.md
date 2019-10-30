@@ -1,7 +1,3 @@
----
-nav: toc
----
-
 # Array
 
 Operators and functions for working with arrays \(**arr** type\) are described here. **arr.typename** means that you can specify any type name but in the case of the binary operator this type must be the same in both arrays.
