@@ -8,6 +8,7 @@ Operators and functions for working with map arrays \(**map** type\) are describ
 
 * [Del\( map.typename m, str key \) map.typename](map.md#del-map-typename-m-str-key-map-typename)
 * [IsKey\( map.typename m, str key \) bool](map.md#iskey-map-typename-m-str-key-bool)
+* [Key\( map.typename m, int index \) str](map.md#key-map-typename-m-int-index-str)
 
 ## Operators
 
@@ -27,3 +28,13 @@ The _Del_ function deletes the specified key and its value from the _map_ array.
 ### IsKey\( map.typename m, str key \) bool
 
 The _IsKey_ function returns _true_ if there is a value with the specified key in the _map_ and _false_, otherwise.
+
+### Key\( map.typename m, int index \) str
+
+The _Key_ function returns the item key by its index. For example, this function can be used in the *for* loop to get the item key.
+
+``` go 
+for val,i in mymap {
+    Println("\(Key(mymap, i)):\(val)")
+}
+```
