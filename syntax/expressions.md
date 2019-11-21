@@ -1,6 +1,13 @@
 # Expressions
 
-The expression returns a value by applying operators and functions to operands. An operand may be a literal, an identifier denoting a constant, variable, or function, or a parenthesized expression. To call a function, specify its name and list the parameters in parentheses separated by comma. Parameters can also be expressions.
+The expression returns a value by applying operators and functions to operands. An operand may be a literal, an identifier denoting a constant, variable, or function, or a parenthesized expression. To call a function, specify its name and list the parameters in parentheses separated by comma. Parameters can also be expressions. In addition, you can set the first parameter before the function and separate it by a dot. This helps to more clearly indicate the sequence of function calls.
+```go
+(b*c).func3(d).func2(a).func1(10)
+"my string".Upper().TrimRight("g")
+// эквивалентно
+func1(func2(func3( b*c, d ), a), 10)
+TrimRight(Upper("my string"), "g")
+```
 
 ```text
 Operand     = Literal | OperandName | "(" Expression ")" | GoStmt
@@ -8,7 +15,8 @@ Literal     = BasicLiteral
 constLit    = "true" | "false"
 BasicLiteral    = float | integer | stringLit | constLit | charLit
 OperandName = identifier | EnvVariable | FnIdent
-PrimaryExpr = Operand |    FuncName Arguments | IfOp | IndexExp | FieldExpr
+PrimaryExpr = Operand | FuncName Arguments | Expression "." FuncName Arguments | IfOp | 
+              IndexExp | FieldExpr
 OptionalArgs = identifier ":" Expression { "," identifier ":" Expression }
 Arguments    = "(" [ ExpressionList ] [ OptionalArgs ] ")" 
 ExpressionList = Expression { "," Expression } 
@@ -28,7 +36,7 @@ When calculating the logical operators "&&" \(AND\) and "\|\|" \(OR\), the right
 
 Assignment operators are binary operators that return an assigned value. Therefore, assignment operators can be used within expressions.
 
-```text
+```go
 int i j k
 i = j = 5+(k=60/5)*2
 return (k+j)*2 + i   // 111
@@ -64,7 +72,7 @@ Parentheses \(\) change the order in which expressions are evaluated. Increment 
 
 Conditional operator "?" is similar in its work to the "if" statement, but can be used inside an expression. The conditional operator has three operand expressions. The operands are enclosed in parentheses and separated by commas, at the beginning the value of the first logical expression is evaluated. If the value is true, the second expression is evaluated and the resulting value is the result of the conditional operator. Otherwise, the third operand is evaluated and its value is returned.
 
-```text
+```go
 if a >= ?( x, 0xFFF, ?( y < 5 && y > 2, y, 2*b )) + 2345
 {
      r = ?( a == 10, a, a + b ) 
@@ -85,7 +93,7 @@ StructInit = "{" identifier ":" VarInit { DelimInit identifier ":" VarInit  }  "
 VarInit = ArrInit | BufInit | MapInit | StructInit | SetInit | Expression
 ```
 
-```text
+```go
 mystruct my = {ID: 20, name: "some text"}
 buf a = {250+5, '1', 'A', "test", 0}
 map.arr.int ret = {"key1": {0, 1 }, `key2`:{ 2, 3 } }
@@ -112,7 +120,7 @@ If _array_ or _map_ consists of arrays, then you can sequentially apply the inde
 IndexExp = PrimaryExpr "[" Expression "]" { "[" Expression "]" }
 ```
 
-```text
+```go
 str temp = `0123`
 temp[1] = temp[3]  // result `0323`
 arr ain
@@ -129,7 +137,7 @@ amap[0]["mykey"] = "new value"
 
 There is an assignment operator **=** for all types in the Gentee language. When you use assignment for **buf, arr, map, set**, and all structure types, you will get copies of the data. Consider an example
 
-```text
+```go
 arr a1 = {`A`, `B`, `C`}
 arr a2 = a1
 a2 += `D`
@@ -140,7 +148,7 @@ a1[0] = `Z`
 
 When assigning _a2 = a1_ we got a copy of the array _a1_. Actions on arrays will not affect each other in any way. Sometimes making copies of large objects can slow down program execution. For example, if a function returns some structure that you want to work with further, then there is no point in creating its copy. To resolve such situations, there is another assignment operator **&=** for types **buf, arr, map, set** and all structure types. This operator does not copy data into a variable, but creates a clone of this data. In this case, the data remains in a single copy.
 
-```text
+```go
 arr a1 = {`A`, `B`, `C`}
 arr a2 &= a1
 a2 += `D`
@@ -149,7 +157,7 @@ a1[0] = `Z`
 //  a2 = `Z`, `B`, `C`, `D`
 ```
 
-```text
+```go
 time t
 t &= Now()  // it is better than t = Now()
 ```
@@ -162,7 +170,7 @@ There are no global variables in Gentee. Instead, there is an associative array 
 * Unary operator **\# key** works similarly to the **\#\#** operator, but it needs to pass the name-identifier of the context key.
 * The **key \#= value** operator writes the _key_ key with the specified value into the context. If the value is of type _int, bool, float_ instead of type _str_, it will be converted to a string.
 
-```text
+```go
 func ooops() {
     AB #= `oops`
 }
