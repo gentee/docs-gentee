@@ -20,6 +20,8 @@ Operators and functions for working with strings \(**str** type\) are described 
 * [Replace\( str s, str old, str new \) str](string.md#replace-str-s-str-old-str-new-str)
 * [Split\( str s, str sep \) arr.str](string.md#split-str-s-str-sep-arrstr)
 * [Substr\( str s, int off, int length \) str](string.md#substr-str-s-int-off-int-length-str)
+* [Trim\( str s, str cutset \) str](string.md#trim-str-s-str-cutset-str)
+* [TrimLeft\( str s, str cutset \) str](string.md#trimleft-str-s-str-cutset-str)
 * [TrimRight\( str s, str cutset \) str](string.md#trimright-str-s-str-cutset-str)
 * [TrimSpace\( str s \) str](string.md#trimspace-str-s-str)
 * [Upper\( str s \) string](string.md#upper-str-s-str)
@@ -140,6 +142,14 @@ The _Split_ function slices _s_ string into all substrings separated by _sep_ st
 ### Substr\(str s, int off, int length\) str
 
 The _Substr_ function returns a substring of the string _s_ with the specified offset and length.
+
+### Trim\(str s, str cutset\) str
+
+The _Trim_ function returns a substring of the string _s_, with all leading and trailing Unicode code points contained in _cutset_ removed.
+
+### TrimLeft\(str s, str cutset\) str
+
+The _TrimLeft_ function returns a substring of the string _s_, with all leading Unicode code points contained in _cutset_ removed.
 
 ### TrimRight\(str s, str cutset\) str
 
