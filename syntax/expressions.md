@@ -4,7 +4,7 @@ The expression returns a value by applying operators and functions to operands. 
 ```go
 (b*c).func3(d).func2(a).func1(10)
 "my string".Upper().TrimRight("g")
-// эквивалентно
+// the same as
 func1(func2(func3( b*c, d ), a), 10)
 TrimRight(Upper("my string"), "g")
 ```
@@ -50,7 +50,9 @@ As a rule, all statements are executed from left to right, but there is such a c
 | :--- | :--- | :--- |
 | The highest priority |  |  |
 | \(   \)  \[   \] |  | Left to right |
-| !   -   ^   \#   \#\#   \*   ++   -- | Unary prefix | Right to left |
+| -   ^   \#   \#\#   \*   ++   -- | Unary prefix | Right to left |
+| ? | Unary postfix | Right to left |
+| ! | Unary prefix | Right to left |
 | ++   -- | Unary postfix | Left to right |
 | /   %   \* | Binary | Left to right |
 | +   - | Binary | Left to right |
