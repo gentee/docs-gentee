@@ -2,6 +2,7 @@
 
 Operators and functions for working with arrays \(**arr** type\) are described here. **arr.typename** means that you can specify any type name but in the case of the binary operator this type must be the same in both arrays.
 
+* [bool\( arr.typename a \) bool](array.md#bool-arr-typename-a-bool)
 * [Join\( arr.str a, str sep \) str](array.md#join-arr-str-a-str-sep-str)
 * [Reverse\( arr.typename a \) arr.typename](array.md#reverse-arr-typename-a-arr-typename)
 * [Slice\( arr.typename a, int start, int end \) arr.typename](array.md#slice-arr-typename-a-int-start-int-end-arr-typename)
@@ -12,6 +13,7 @@ Operators and functions for working with arrays \(**arr** type\) are described h
 | Operator | Result | Description |
 | :--- | :--- | :--- |
 | **\*** arr.typename | int | Returns the number of elements in the array. |
+| arr.typename **?** | bool | Calls *bool(arr.typename)*. |
 | arr.typename **=** arr.typename | arr.typename | Assignment operator. |
 | arr.typename **&=** arr.typename | arr.typename | Creates a clone of the array. The new variable will work with the same data set. |
 | arr.typename **+=** arr.typename | arr.typename | Adds items from one array to another. |
@@ -23,6 +25,10 @@ Operators and functions for working with arrays \(**arr** type\) are described h
 | arr.typename **\[** int **\]** | typename | Sets/gets an array value by index. |
 
 ## Functions
+
+### bool\(arr.typename a\) bool
+
+The _bool_ function returns _false_ if the array is empty, otherwise, it returns _true_.
 
 ### Join\(arr.str a, str sep\) str
 

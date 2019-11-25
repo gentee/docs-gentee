@@ -6,6 +6,7 @@ nav: toc
 
 Operators and functions for working with an array of bytes \(**buf** type\) are described here.
 
+* [bool\( buf b \) bool](buffer.md#bool-buf-b-bool)
 * [buf\( str s \) buf](buffer.md#buf-str-s-buf)
 * [str\( buf b \) str](buffer.md#str-buf-b-str)
 * [Base64\( buf b \) str](buffer.md#base-64-buf-b-str)
@@ -20,6 +21,7 @@ Operators and functions for working with an array of bytes \(**buf** type\) are 
 | Operator | Result | Description |
 | :--- | :--- | :--- |
 | **\*** buf | int | Returns the number of bytes in the array. |
+| buf **?** | bool | Calls *bool(buf)*. |
 | buf **+** buf | buf | Merges two buffers. |
 | buf **=** buf | buf | Assignment operator. |
 | buf **&=** buf | buf | Create a clone of the buffer. The new variable will work with the same data set. |
@@ -30,6 +32,10 @@ Operators and functions for working with an array of bytes \(**buf** type\) are 
 | buf **\[** int **\]** | int | Sets/gets a byte by index. |
 
 ## Functions
+
+### bool\(buf b\) bool
+
+The _bool_ function returns _false_ if the buffer is empty, otherwise, it returns _true_.
 
 ### buf\(str s\) buf
 

@@ -32,6 +32,7 @@ Operators and functions for working with strings \(**str** type\) are described 
 | :--- | :--- | :--- |
 | str **+** str | str | Merges two strings. |
 | **\*** str | int | Returns the length of the string. |
+| str **?** | bool | Calls *bool(str)*. |
 | **\|** str | str | This unary operator trims whitespace characters in the each line of the string. |
 | str **==** str | bool | Returns _true_ if the two strings are equal and _false_, otherwise. |
 | str **&gt;** str | bool | Returns _true_ if the first string is greater than the second and _false_, otherwise. |

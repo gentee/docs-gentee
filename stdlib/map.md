@@ -1,11 +1,8 @@
----
-nav: toc
----
-
 # Map
 
 Operators and functions for working with map arrays \(**map** type\) are described here. **map.typename** means that you can specify any type name but in the case of the binary operator this type must be the same in both maps.
 
+* [bool\( map.typename m \) bool](map.md#bool-map-typename-m-bool)
 * [Del\( map.typename m, str key \) map.typename](map.md#del-map-typename-m-str-key-map-typename)
 * [IsKey\( map.typename m, str key \) bool](map.md#iskey-map-typename-m-str-key-bool)
 * [Key\( map.typename m, int index \) str](map.md#key-map-typename-m-int-index-str)
@@ -15,11 +12,16 @@ Operators and functions for working with map arrays \(**map** type\) are describ
 | Operator | Result | Description |
 | :--- | :--- | :--- |
 | **\*** map.typename | int | Returns the number of elements in the map. |
+| map.typename **?** | bool | Calls *bool(map.typename)*. |
 | map.typename **=** map.typename | map.typename | Assignment operator. |
 | map.typename **&=** map.typename | map.typename | Creates a clone of the map. The new variable will work with the same data set. |
 | map.typename **\[** str **\]** | typename | Sets/gets a map value by key. |
 
 ## Functions
+
+### bool\(map.typename m\) bool
+
+The _bool_ function returns _false_ if the map is empty, otherwise, it returns _true_.
 
 ### Del\( map.typename m, str key \) map.typename
 

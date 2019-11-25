@@ -13,6 +13,7 @@ Operators and functions for working with integers of **int** type are described 
 
 | Operator | Result | Description |
 | :--- | :--- | :--- |
+| int **?** | bool | *true*, if the number doesn't equal zero. |
 | int **+** int | int | The addition of two integers. |
 | int **-** int | int | Subtract two integers. |
 | int **\*** int | int | Multiplication of two integers. |

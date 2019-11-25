@@ -20,6 +20,7 @@ Operators and functions for working with decimal numbers of **float** type are d
 
 | Operator | Result | Description |
 | :--- | :--- | :--- |
+| float **?** | bool | Calls *bool(float)*. |
 | float **+** float | float | Adds two numbers. |
 | float **+** int | float |  |
 | int **+** float | float |  |
