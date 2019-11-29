@@ -18,6 +18,7 @@ Operators and functions for working with strings \(**str** type\) are described 
 * [Lower\( str s \) string](string.md#lower-str-s-str)
 * [Repeat\( str s, int count \) str](string.md#repeat-str-s-int-count-str)
 * [Replace\( str s, str old, str new \) str](string.md#replace-str-s-str-old-str-new-str)
+* [Right\( str s, int i \) string](string.md#right-str-s-int-i-str)
 * [Split\( str s, str sep \) arr.str](string.md#split-str-s-str-sep-arrstr)
 * [Substr\( str s, int off, int length \) str](string.md#substr-str-s-int-off-int-length-str)
 * [Trim\( str s, str cutset \) str](string.md#trim-str-s-str-cutset-str)
@@ -135,6 +136,10 @@ The _Repeat_ function returns a new string consisting of _count_ copies of the s
 ### Replace\(str s, str old, str new\) str
 
 The _Replace_ function returns a copy of the string _s_ with all _old_ strings replaced by _new_ string.
+
+### Right\(str s, int i\) str
+
+The _Right_ function returns a substring of the last _i_ characters of the _s_ string.
 
 ### Split\(str s, str sep\) arr.str
 

@@ -17,6 +17,7 @@
   * [Buffer](stdlib/buffer.md)
   * [Characters](stdlib/char.md)
   * [Console](stdlib/console.md)
+  * [Constants](stdlib/constants.md)
   * [Context](stdlib/context.md)
   * [Cryptography](stdlib/crypto.md)
   * [Files](stdlib/file.md)

@@ -21,7 +21,7 @@ The _AbsPath_ function returns an absolute representation of path.
 
 ### BaseName\(str path\) str
 
-The _BaseName_ function eturns the last element of path. Trailing path separators are removed before extracting the last element. If the path is empty, the function returns ".".
+The _BaseName_ function returns the last element of path. Trailing path separators are removed before extracting the last element. If the path is empty, the function returns ".".
 
 ### Dir\(str path\) str
 
