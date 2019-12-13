@@ -17,7 +17,7 @@ The operators and functions for working with objects are described here.
 
 ## Functions
 
-### bool\(obj b\) bool
+### bool\(obj o\) bool
 
 The _bool_ function returns a logical value of the current type. For example, if an object contains a string, the result of calling _bool(str)_ is returned. If the object is not defined, an error is returned.
 
