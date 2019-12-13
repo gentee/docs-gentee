@@ -13,7 +13,7 @@ The operators and functions for working with objects are described here.
 
 | Operator | Result | Description |
 | :--- | :--- | :--- |
-| obj **?** | bool | Вызов *bool(obj)*. |
+| obj **?** | bool | Calls *bool(obj)*. |
 
 ## Functions
 
