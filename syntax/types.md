@@ -2,7 +2,7 @@
 
 ### Type declaration
 
-A type determines a set of values that have the same operations and functions specific for those values. A type is denoted by a type name. A map is a group of elements of one type, indexed by a set of unique string keys. By default, _arr_ and _map_ arrays consist of strings, but you can specify any nested types by separating them with a dot. Note that variables of types **arr**, **map**, **buf**, **set** and types that has been defined with **struct**, unlike other types, are passed by reference, not by value. This means that if you change the value of this parameter inside the function, you will change the original variable.
+A type determines a set of values that have the same operations and functions specific for those values. A type is denoted by a type name. A map is a group of elements of one type, indexed by a set of unique string keys. By default, _arr_ and _map_ arrays consist of strings, but you can specify any nested types by separating them with a dot. Note that variables of types **arr**, **map**, **buf**, **set**, **obj** and types that has been defined with **struct**, unlike other types, are passed by reference, not by value. This means that if you change the value of this parameter inside the function, you will change the original variable.
 
 ```go
 TypeName  = identifier { "." identifier }
@@ -10,7 +10,7 @@ TypeName  = identifier { "." identifier }
 
 The Gentee language predeclares the following types.
 
-**arr bool buf char error finfo float int map range set str time trace thread**
+**arr bool buf char error finfo float int map obj range set str time trace thread**
 
 | Name | Description | Values | Initial value |
 | :--- | :--- | :--- | :--- |
@@ -23,6 +23,7 @@ The Gentee language predeclares the following types.
 | **map** | associative array | associative array of elements | empty associative array of strings |
 | **buf** | array of bytes | array of uint8 | empty array |
 | **set** | set of bool | array of uint64 with 1 bit per value | empty set |
+| **obj** | object | int, bool, float, str, arr.obj, map.obj | nil |
 
 ```go
 arr.map.int a

@@ -26,6 +26,7 @@
   * [Map](stdlib/map.md)
   * [Multithreading](stdlib/threads.md)
   * [Network](stdlib/network.md)
+  * [Object](stdlib/obj.md)
   * [Path](stdlib/path.md)
   * [Process](stdlib/process.md)
   * [Regular expressions](stdlib/regexp.md)

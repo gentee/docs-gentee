@@ -1,7 +1,3 @@
----
-nav: toc
----
-
 # Boolean
 
 Operators and functions for working with boolean \(**bool** type\) are described here.
