@@ -5,9 +5,11 @@ The operators and functions for working with objects are described here.
 
 * [bool\( obj o \) bool](obj.md#bool-obj-o-bool)
 * [IsNil\( obj o \) bool](obj.md#isnil-obj-o-bool)
+* [obj\( arr.typename a \) obj](obj.md#obj-arr-typename-a-obj)
 * [obj\( bool b \) obj](obj.md#obj-bool-b-obj)
 * [obj\( float f \) obj](obj.md#obj-float-f-obj)
 * [obj\( int i \) obj](obj.md#obj-int-i-obj)
+* [obj\( map.typename m \) obj](obj.md#obj-map-typename-m-obj)
 * [obj\( str s \) obj](obj.md#obj-str-s-obj)
 * [str\( obj o \) str](obj.md#str-obj-o-str)
 * [Type\( obj o \) str](obj.md#type-obj-o-str)
@@ -17,7 +19,13 @@ The operators and functions for working with objects are described here.
 | Operator | Result | Description |
 | :--- | :--- | :--- |
 | obj **?** | bool | Calls *bool(obj)*. |
+| obj **=** arr.typename | obj | Assigning an array to an object. |
+| obj **=** bool | obj | Assigning a boolean value to an object. |
+| obj **=** float | obj | Assigning a decimal number to an object. |
+| obj **=** int | obj | Assigning a number to an object. |
+| obj **=** map.typename | obj | Assigning an associative array to an object. |
 | obj **=** obj | obj | Assignment operator. |
+| obj **=** str | obj | Assigning a string to an object. |
 | obj **&=** obj | obj | Creates a clone of the object. The new variable will work with the same data set. |
 
 ## Functions
@@ -30,6 +38,10 @@ The _bool_ function returns a logical value of the current type. For example, if
 
 The _IsNil_ function returns _true_ if the object is undefined (equal to **nil**). Otherwise, the function returns _false_.
 
+### obj\(arr.typename a\) obj
+
+The _obj_ function converts an array of the _arr_ type into an object.
+
 ### obj\(bool b\) obj
 
 The _obj_ function creates an object with the specified logical value.
@@ -41,6 +53,10 @@ The _obj_ function creates an object with the specified **float** value.
 ### obj\(int i\) obj
 
 The _obj_ function creates an object with the specified **int** value.
+
+### obj\(map.typename m\) obj
+
+The _obj_ function converts an associative array of the _map_ type into an object.
 
 ### obj\(str s\) obj
 
