@@ -4,6 +4,8 @@ The **obj** type is used to store values of the following types - **int, bool, f
 The operators and functions for working with objects are described here.
 
 * [bool\( obj o \) bool](obj.md#bool-obj-o-bool)
+* [float\( obj o \) float](obj.md#float-obj-o-float)
+* [int\( obj o \) int](obj.md#int-obj-o-int)
 * [IsNil\( obj o \) bool](obj.md#isnil-obj-o-bool)
 * [obj\( arr.typename a \) obj](obj.md#obj-arr-typename-a-obj)
 * [obj\( bool b \) obj](obj.md#obj-bool-b-obj)
@@ -18,6 +20,7 @@ The operators and functions for working with objects are described here.
 
 | Operator | Result | Description |
 | :--- | :--- | :--- |
+| *obj | int | If the object is _arr.obj_ or _map.obj_, the number of items in the array is returned. Otherwise, it returns 0. |
 | obj **?** | bool | Calls *bool(obj)*. |
 | obj **=** arr.typename | obj | Assigning an array to an object. |
 | obj **=** bool | obj | Assigning a boolean value to an object. |
@@ -27,12 +30,21 @@ The operators and functions for working with objects are described here.
 | obj **=** obj | obj | Assignment operator. |
 | obj **=** str | obj | Assigning a string to an object. |
 | obj **&=** obj | obj | Creates a clone of the object. The new variable will work with the same data set. |
+| obj **\[** int/str **\]** | obj | Assign / get the value of an array by index. If the object is not _arr.obj_ or _map.obj_, then an error occurs. |
 
 ## Functions
 
 ### bool\(obj o\) bool
 
 The _bool_ function returns a logical value of the current type. For example, if an object contains a string, the result of calling _bool(str)_ is returned. If the object is not defined, an error is returned.
+
+### float\(obj o\) float
+
+The _float_ function converts an object to a decimal floating-point number. The object must contain a value of **str, int, float** type, otherwise, an error occurs.
+
+### int\(obj o\) int
+
+The _int_ function converts an object to an integer. The object must contain a value of **str, int, float, bool** type, otherwise, an error occurs.
 
 ### IsNil\(obj o\) bool
 
