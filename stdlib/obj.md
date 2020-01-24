@@ -4,9 +4,14 @@ The **obj** type is used to store values of the following types - **int, bool, f
 The operators and functions for working with objects are described here.
 
 * [bool\( obj o \) bool](obj.md#bool-obj-o-bool)
+* [bool\( obj o, bool def \) bool](obj.md#bool-obj-o-bool-def-bool)
 * [float\( obj o \) float](obj.md#float-obj-o-float)
+* [float\( obj o, float def \) float](obj.md#float-obj-o-float-def-float)
 * [int\( obj o \) int](obj.md#int-obj-o-int)
+* [int\( obj o, int def \) int](obj.md#int-obj-o-int-def-int)
 * [IsNil\( obj o \) bool](obj.md#isnil-obj-o-bool)
+* [item\( obj o, int i \) obj](obj.md#item-obj-o-int-i-obj)
+* [item\( obj o, str s \) obj](obj.md#item-obj-o-str-s-obj)
 * [obj\( arr.typename a \) obj](obj.md#obj-arr-typename-a-obj)
 * [obj\( bool b \) obj](obj.md#obj-bool-b-obj)
 * [obj\( float f \) obj](obj.md#obj-float-f-obj)
@@ -14,6 +19,7 @@ The operators and functions for working with objects are described here.
 * [obj\( map.typename m \) obj](obj.md#obj-map-typename-m-obj)
 * [obj\( str s \) obj](obj.md#obj-str-s-obj)
 * [str\( obj o \) str](obj.md#str-obj-o-str)
+* [str\( obj o, str def \) str](obj.md#str-obj-o-str-def-str)
 * [Type\( obj o \) str](obj.md#type-obj-o-str)
 
 ## Operators
@@ -38,17 +44,37 @@ The operators and functions for working with objects are described here.
 
 The _bool_ function returns a logical value of the current type. For example, if an object contains a string, the result of calling _bool(str)_ is returned. If the object is not defined, an error is returned.
 
+### bool\(obj o, bool def\) bool
+
+The _bool_ function returns a logical value of the current type. If the object is not defined, the second parameter is returned.
+
 ### float\(obj o\) float
 
 The _float_ function converts an object to a decimal floating-point number. The object must contain a value of **str, int, float** type, otherwise, an error occurs.
+
+### float\(obj o, float def\) float
+
+The _float_ function converts an object to a decimal floating-point number. If the object is not defined, the second parameter is returned. 
 
 ### int\(obj o\) int
 
 The _int_ function converts an object to an integer. The object must contain a value of **str, int, float, bool** type, otherwise, an error occurs.
 
+### int\(obj o, int def\) int
+
+The _int_ function converts an object to an integer. If the object is not defined, the second parameter is returned. 
+
 ### IsNil\(obj o\) bool
 
 The _IsNil_ function returns _true_ if the object is undefined (equal to **nil**). Otherwise, the function returns _false_.
+
+### item\(obj o, int i\) obj
+
+The _item_ function returns the i-th element of the object. The object must be of **arr.obj** type. If the element is missing, then an empty object is returned.
+
+### item\(obj o, str s\) obj
+
+The _item_ function returns the value of key **s**. The object must be of **map.obj** type. If there is no element, it returns an empty object.
 
 ### obj\(arr.typename a\) obj
 
@@ -77,6 +103,10 @@ The _obj_ function creates an object with the specified **str** value.
 ### str\(obj o\) str
 
 The _str_ function converts the object to a string and returns it.
+
+### str\(obj o, str def\) str
+
+The _str_ function converts the object to a string and returns it. If the object is not defined, the second parameter is returned.
 
 ### Type\(obj o\) str
 
