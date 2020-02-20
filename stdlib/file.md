@@ -8,9 +8,11 @@ Functions for working with files and directories are described here.
 
 * [AppendFile\( str filename, buf \| str data \)](file.md#appendfile-str-filename-buf-or-str-data)
 * [ChDir\( str dirname \)](file.md#chdir-str-dirname)
+* [ChMode\( str name, int mode \)](file.md#chmode-str-name-int-mode)
 * [CopyFile\( str src, str dest \) int](file.md#copyfile-str-src-str-dest-int)
 * [CreateDir\( str dirname \)](file.md#createdir-str-dirname)
 * [FileInfo\( str name \) finfo](file.md#fileinfo-str-name-finfo)
+* [FileMode\( str name \) int](file.md#filemode-str-name-int)
 * [GetCurDir\(\) str](file.md#getcurdir-str)
 * [Md5File\( str filename \) str](file.md#md-5-file-str-filename-str)
 * [ReadDir\( str dirname \) arr.finfo](file.md#readdir-str-dirname-arr-finfo)
@@ -48,9 +50,13 @@ The _AppendFile_ function appends data of _buf_ variable or a string to a file n
 
 The _ChDir_ function changes the current directory.
 
+### ChMode\(str name, int mode\)
+
+The _ChMode_ function changes the attributes of the file.
+
 ### CopyFile\(str src, str dest\) int
 
-The _CopyFile_ function copies _src_ file to _dest_ file. If _dest_ file exists it is overwritten. The function returns the number of copied bytes.
+The _CopyFile_ function copies _src_ file to _dest_ file. If _dest_ file exists it is overwritten. The file attributes are preserved when copying. The function returns the number of copied bytes.
 
 ### CreateDir\(str dirname\)
 
@@ -59,6 +65,10 @@ The _CreateDir_ function creates a directory named _dirname_, along with any nec
 ### FileInfo\(str name\) finfo
 
 The _FileInfo_ function gets information about the named file and returns _finfo_ structure.
+
+### FileMode\(str name\) int
+
+The _FileMode_ function returns the file attributes.
 
 ### GetCurDir\(\) str
 
