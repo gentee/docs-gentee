@@ -10,6 +10,7 @@ The functions for working with a virtual machine during script execution are des
 * [ErrID\( error err \) int](runtime.md#errid-error-err-int)
 * [ErrText\( error err \) str](runtime.md#errtext-error-err-str)
 * [ErrTrace\( error err \) arr.trace](runtime.md#errtrace-error-err-arr-trace)
+* [exit\( int code \)](runtime.md#exit-int-code)
 * [Trace\(\) arr.trace](runtime.md#trace-arr-trace)
 
 ## Types
@@ -36,7 +37,7 @@ The _error_ function throws a custom runtime error.
 
   as in [Format](https://gentee.github.io/stdlib/string#formatstr-s-anytype-args-str) function.
 
-```text
+```go
     error(10, `Error message %{ 10 }`)
     error(10, `Error message %d`, 10)
 ```
@@ -45,7 +46,7 @@ The _error_ function throws a custom runtime error.
 
 The _ErrID_ function returns the identifier of the _err_ error. This function can be used inside **try-catch** statement for error handling.
 
-```text
+```go
 run {
   try {
     .....
@@ -68,6 +69,24 @@ The _ErrText_ function returns the text of the _err_ error. This function can be
 ### ErrTrace\(error err\) arr.trace
 
 The _ErrTrace_ function returns the stack of called functions at the moment when the _err_ error occurs. This function can be used inside **try-catch** statement for error handling.
+
+### exit\(int code\)
+
+The _exit_ function terminates the script. The function can be called in any thread. The script returns the value of _code_.
+
+```go
+func ok(int par) int {
+  if par == 0 : exit(0)
+  return 3 * par
+}
+run int {
+  int sum
+  for i in 10..-10 {
+    sum += ok(i)
+  }
+  return sum
+}
+```
 
 ### Trace\(\) arr.trace
 
