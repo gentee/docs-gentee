@@ -37,6 +37,18 @@ The _Settings_ type is used to specify additional parameters when starting the b
 * **Input** \[\]byte - predefined standard input (stdin). Can be used, for example, in the function [ReadString](/stdlib/console.md#readstring-string-text-str).
 * **Cycle** uint64 - maximum number of iterations in the loop. By default, it is 1600000000.
 * **Depth** uint32 - maximum nesting of executable blocks. Limits the recursion depth. By default, it is equal to 1000.
+* **SysChan** chan int - the channel for sending *SysSuspend* (0), *SysResume* (1), *SysTerminate* (2) commands. It allows you to control the script execution from the outside.
+  * *SysSuspend* - suspend the script execution and all its threads.
+  * *SysResume* - resume the script execution and all its threads.
+  * *SysTerminate* - terminate the script and all its threads.
+
+``` go
+    settings.SysChan = make(chan int)
+    go func() {
+        _, err = exec.Run(settings)
+    }()
+    settings.SysChan <- gentee.SysTerminate
+```
 
 ## Functions and methods
 
