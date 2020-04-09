@@ -7,6 +7,7 @@ Operators and functions for working with integers of **int** type are described 
 * [float\( int i \) float](integer.md#float-int-i-float)
 * [Max\( int l, int r \) int](integer.md#max-int-l-int-r-int)
 * [Min\( int l, int r \) int](integer.md#min-int-l-int-r-int)
+* [Random\( int n \) int](integer.md#random-int-n-int)
 * [str\( int i \) str](integer.md#str-int-i-str)
 
 ## Operators
@@ -68,7 +69,10 @@ The _Max_ function returns the maximum of two values.
 
 The _Min_ function returns the minimum of two values.
 
+### Random\(int n\) int
+
+The _Random_ function returns a non-negative pseudo-random number in [0,n).
+
 ### str\(int i\) str
 
 The _str_ function converts an integer to a string.
-

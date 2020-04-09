@@ -34,6 +34,8 @@ The _EmbedItem_ type describes the function to be embedded in the standard libra
 The _Settings_ type is used to specify additional parameters when starting the bytecode in the **Run** method.
 
 * **CmdLine** \[\]string -  an array of command line parameters.
+* **Stdin** \*os.File - custom standard input.
+* **Stdout** \*os.File - custom standard output.
 * **Input** \[\]byte - predefined standard input (stdin). Can be used, for example, in the function [ReadString](/stdlib/console.md#readstring-string-text-str).
 * **Cycle** uint64 - maximum number of iterations in the loop. By default, it is 1600000000.
 * **Depth** uint32 - maximum nesting of executable blocks. Limits the recursion depth. By default, it is equal to 1000.
