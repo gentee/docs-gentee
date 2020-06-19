@@ -23,6 +23,7 @@ Parameters and return value of go-functions must have types in accordance with t
 | map | *core.Map |
 | set | *core.Set |
 | struct type | *core.Struct |
+| obj | *core.Obj |
 
 ```go
 func sum(x, y int64) int64 {

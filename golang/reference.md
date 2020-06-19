@@ -11,6 +11,8 @@ The functions and structures for using the **Gentee** programming language in **
 * [\(g \*Gentee\) CompileAndRun\(filename string\) \(interface{}, error\)](reference.md#g-gentee-compileandrun-filename-string-interface-error)
 * [\(g \*Gentee\) CompileAndRun\(filename string\) \(\*Exec, int, error\)](reference.md#g-gentee-compilefile-filename-string-exec-int-error)
 * [\(exec \*Exec\) Run\(settings Settings\) \(interface{}, error\)](reference.md#exec-exec-run-settings-settings-interface-error)
+* [Gentee2GoType\(val interface{}, vtype... string\) interface{}](reference.md#gentee-2-gotype-val-interface-vtype-string-interface)
+* [Go2GenteeType\(val interface{}, vtype... string\) \(interface{}, error\)](reference.md#go-2-genteetype-val-interface-vtype-string-interface-error)
 * [Version\(\) string](reference.md#version-string)
 
 ## Types
@@ -78,7 +80,78 @@ The _CompileFile_ function compiles the script from the _filename_ file. The fun
 
 The _Run_ function executes bytecode from the _exec_ structure. You can specify additional settings in the _settings_ parameter. The function returns the result of the script and the error value.
 
+### Gentee2GoType\(val interface{}, vtype... string\) interface{}
+
+The _Gentee2GoType_ function converts the Gentee variable to standard Go types. In the second parameter, you can specify the Gentee type of a variable. For example, _arr.bool_. In this case you will get an array of variables of _bool_ type instead of _int64_. You can use this function in your embedded functions.
+
+Type correspondence
+
+| Gentee type | Param type | Result type (vtype)
+| :--- | :--- | :--- |
+| int | int64 | int64
+| bool | int64 | bool ("bool")
+| char | int64 | rune ("rune")
+| float | float64 | float64
+| str | string | string
+| arr | *core.Array | []interface{}
+| buf | *core.Buffer | []byte
+| map | *core.Map | map[string]interface{}
+| set | *core.Set | []byte
+| struct type | *core.Struct | map[string]interface{}
+| obj | *core.Obj | interface{}
+
+```go
+func cnv1(in *core.Map) (*core.Map, error) {
+  my := gentee.Gentee2GoType(in).(map[string]interface{})
+  for key, a := range my {
+    for i, v := range a.([]interface{}) {
+      a.([]interface{})[i] = v.(int64) + 1
+    }
+    delete(my, key)
+    my[key+`2`] = a
+  }
+  ret, err := gentee.Go2GenteeType(my)
+  return ret.(*core.Map), err
+}
+```
+
+### Go2GenteeType\(val interface{}, vtype... string\) \(interface{}, error\)
+
+The _Go2GenteeType_ function converts a value of the standard Go type to a value of Gentee type. In the second parameter you can specify the Gentee type of the variable. For example, _set_ if you want to convert _[]byte_ to *core.Set. You can use this function in your embedded functions.
+
+Type correspondence
+
+| Gentee type | Param type | Result type (vtype)
+| :--- | :--- | :--- |
+| int | all int & uint | int64
+| bool | bool | int64
+| char | rune | int64
+| float | float64 | float64
+| str | string | string
+| arr | []interface{} | *core.Array
+| buf | []byte | *core.Buffer
+| set | []byte | *core.Set ("set")
+| map | map[string]interface{} | *core.Map
+| obj | interface{} | *core.Obj ("obj")
+
+```go
+func cnv5(in *core.Set) (*core.Set, error) {
+  my := gentee.Gentee2GoType(in).([]byte)
+  for i, b := range my {
+    if i > 10 {
+      break
+    }
+    if b == 0 {
+      my[i] = 1
+    } else {
+      my[i] = b - 1
+    }
+  }
+  ret, err := gentee.Go2GenteeType(my, `set`)
+  return ret.(*core.Set), err
+}
+```
+
 ### Version\(\) string
 
 The _Version_ function returns the current version number of the language.
-
