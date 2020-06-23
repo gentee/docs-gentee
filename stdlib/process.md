@@ -6,7 +6,7 @@ nav: toc
 
 Operators and functions for working with processes and applications are described here. The _Args_ and _ArgCount_ functions work with any command line format. For the correct operation of other _Arg..._ functions, the command line must have the following format.
 
-```text
+```go
 CmdLine = [ CmdOptions ] ["-"] [ CmdParameters ]
 CmdParameters = { CmdParameter }
 CmdParameter = ParamWithoutSpace | "Param With Spaces" | 'Param With Spaces'
@@ -33,6 +33,7 @@ CmdOptionValues = " " CmdParameters
 * [Open\( str path \)](process.md#open-str-path)
 * [OpenWith\( str app, str path \)](process.md#openwith-str-app-str-path)
 * [Run\( str cmd, str params... \)](process.md#run-str-cmd-str-params)
+* [SplitCmdLine\( str cmdline \) arr.str](process.md#splitcmdline-str-cmdline-arr-str)
 * [Start\( str cmd, str params... \)](process.md#start-str-cmd-str-params)
 
 ## Operators
@@ -116,6 +117,18 @@ The _Run_ function starts the specified _cmd_ program with parameters and waits 
         #comment    
         echo "%{str(dirout)}"`
     ))
+```
+
+### SplitCmdLine\(str cmdline\) arr.str
+
+The _SplitCmdLine_ function parses the input string with command line parameters and returns an array of parameters.
+
+```go
+run str {
+    return SplitCmdLine(`param1 "second par" "qwert\"y" 100 'oo ps'
+-lastparam`).Join(`=`)
+}
+// returns param1=second par=qwert"y=100=oo ps=-lastparam
 ```
 
 ### Start\(str cmd, str params...\)
