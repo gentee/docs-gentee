@@ -38,3 +38,6 @@ run my_best_script {
 }
 ```
 
+### VERSION
+
+The _VERSION_ constant returns the current version of the Gentee compiler.

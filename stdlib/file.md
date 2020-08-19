@@ -16,6 +16,7 @@ Functions for working with files and directories are described here.
 * [GetCurDir\(\) str](file.md#getcurdir-str)
 * [Md5File\( str filename \) str](file.md#md-5-file-str-filename-str)
 * [ReadDir\( str dirname \) arr.finfo](file.md#readdir-str-dirname-arr-finfo)
+* [ReadDir\( str dirname, int flags, str pattern \) arr.finfo](file.md#readdir-str-dirname-int-flags-str-pattern-arr-finfo)
 * [ReadFile\( str filename \) str](file.md#readfile-str-filename-str)
 * [ReadFile\( str filename, buf out \) buf](file.md#readfile-str-filename-buf-out-buf)
 * [ReadFile\( str filename, int offset, int length \) buf](file.md#readfile-str-filename-int-offset-int-length-buf)
@@ -36,9 +37,10 @@ The _finfo_ is used for getting information about a file and has the following f
 
 * **str Name** - base name of the file
 * **int Size** - length in bytes for regular files
-* **int Mode** - file's mode and permission bits.
+* **int Mode** - file's mode and permission bits
 * **time Time** - last modification time
 * **bool IsDir** - true if it is a directory
+* **str Dir** - directory where the file is located. This field is only filled when calling the function [ReadDir(str, int, str)](file.md#readdir-str-dirname-int-flags-str-pattern-arr-finfo)
 
 ## Functions
 
@@ -81,6 +83,28 @@ The _Md5File_ function returns the MD5 hash of the specified file as a hex strin
 ### ReadDir\(str dirname\) arr.finfo
 
 The _ReadDir_ function reads the directory named by dirname and returns a list of directories and files entries.
+
+### ReadDir\(str dirname, int flags, str pattern\) arr.finfo
+
+The _ReadDir_ function reads the *dirname* directory with the specified name and returns the list of its subdirectories and files according to the specified parameters. The *flags* parameter can be a combination of the following flags:
+
+* **RECURSIVE** - In this case there will be a recursive search for all subdirectories.
+* **ONLYFILES** - The returned array will contain only files.
+* **REGEXP** - The *pattern* parameter contains a regular expression for matching file names.
+
+The *pattern* parameter can contain a wildcard for files or a regular expression. In this case, the files and directories that match the specified pattern will be returned. The wildcard can contain the following characters:
+
+* '\*' - matches any sequence of non-separator characters
+* '?' - matches any single non-separator character
+
+``` go
+for item in ReadDir(ftemp, RECURSIVE, `*fold*`) {
+    ret += item.Name
+}
+for item in ReadDir(ftemp, RECURSIVE | ONLYFILES | REGEXP, `.*\.pdf`) {
+    ret += item.Name
+}
+```
 
 ### ReadFile\(str filename\) str
 
