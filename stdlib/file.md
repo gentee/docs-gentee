@@ -11,6 +11,8 @@ Functions for working with files and directories are described here.
 * [ChMode\( str name, int mode \)](file.md#chmode-str-name-int-mode)
 * [CopyFile\( str src, str dest \) int](file.md#copyfile-str-src-str-dest-int)
 * [CreateDir\( str dirname \)](file.md#createdir-str-dirname)
+* [CreateFile\( str name, bool trunc \)](file.md#createfile-str-name-bool-trunc)
+* [ExistFile\( str name \) bool](file.md#existfile-str-name-bool)
 * [FileInfo\( str name \) finfo](file.md#fileinfo-str-name-finfo)
 * [FileMode\( str name \) int](file.md#filemode-str-name-int)
 * [GetCurDir\(\) str](file.md#getcurdir-str)
@@ -63,6 +65,14 @@ The _CopyFile_ function copies _src_ file to _dest_ file. If _dest_ file exists 
 ### CreateDir\(str dirname\)
 
 The _CreateDir_ function creates a directory named _dirname_, along with any necessary parents. If _dirname_ is already a directory, _CreateDir_ does nothing.
+
+### CreateFile\(str name, bool trunc\)
+
+The _CreateFile_ function creates a file with the specified name. If the _trunc_ parameter is _true_ and the file already exists, its size becomes 0.
+
+### ExistFile\(str name\) bool
+
+The _ExistFile_ function returns *true* if the specified file or directory exists. Otherwise, it returns *false*.
 
 ### FileInfo\(str name\) finfo
 
