@@ -39,6 +39,7 @@
   * [Reference](golang/reference.md)
   * [Compilation and execution](golang/howtouse.md)
   * [Advanced features](golang/customize.md)
+  * [Playground](golang/playground.md)
 
 ## Change language
 
