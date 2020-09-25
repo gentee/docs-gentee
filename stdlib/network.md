@@ -3,9 +3,20 @@
 The functions for network/internet operations are described here.
 
 * [Download\( str url, str filename \) int](network.md#download-str-url-str-filename-int)
+* [HeadInfo\( str url \) hinfo](network.md#headinfo-str-url-hinfo)
 * [HTTPGet\( str url \) buf](network.md#httpget-str-url-buf)
 * [HTTPPage\( str url \) str](network.md#httppage-str-url-str)
 * [HTTPRequest\( str url, str method, map.str params, map.str headers \) str](network.md#httprequest-str-url-str-method-map-str-params-map-str-headers-str)
+
+## Types
+
+### hinfo
+
+The _hinfo_ type is used to get url address information and has the following fields:
+
+* **int Status** - response status.
+* **int Length** - content size. It may not be specified (equal to 0).
+* **str Type** - content type. For example, *text/html; charset=UTF-8*.
 
 ## HTTP functions
 
@@ -17,6 +28,10 @@ The _Download_ function downloads the file from the specified URL and saves it w
     str ftemp = TempDir() + `/readme.html`
     int size = Download("https://github.com/gentee/gentee", ftemp)
 ```
+
+### HeadInfo\(str url\) hinfo
+
+The _HeadInfo_ function sends a **HEAD** request to the specified _url_ and returns the _hinfo_ structure.
 
 ### HTTPGet\( str url \) buf
 
