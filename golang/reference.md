@@ -46,6 +46,12 @@ The _Settings_ type is used to specify additional parameters when starting the b
   * *SysSuspend* - suspend the script execution and all its threads.
   * *SysResume* - resume the script execution and all its threads.
   * *SysTerminate* - terminate the script and all its threads.
+* **IsPlayground** bool - assign *true* if you want to run the script in safe [playground](playground.md) mode.
+* **Playground** Playground - configure the playground mode.
+  * *Path* string - path to the temporary directory for writing and reading files. If it is not specified, the subdirectory in the temporary directory will be created.
+  * *AllSizeLimit* int64 - total size of files. By default, it is 10 MB.
+  * *FilesLimit* int - maximum number of files. By default, 100.
+  * *SizeLimit* int64 - maximum file size. By default, 5 MB.
 
 ``` go
     settings.SysChan = make(chan int)

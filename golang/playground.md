@@ -1,7 +1,7 @@
 
 # The Gentee playground
 
-If you want to allow third parties to run Gentee scripts on your computer, use the *Playground* mode when running the scripts. This mode is convenient to run scripts for demonstration or educational purposes and protects the data on your computer from accidental or intentional damage. To enable this mode, specify the *Playground* field as *true* in the *Settings* structure when launching a script using the *Run* function. In addition, it is recommended to reduce the *Cycle* and *Depth* parameters to set limits on resources consumed.
+If you want to allow third parties to run Gentee scripts on your computer, use the *Playground* mode when running the scripts. This mode is convenient to run scripts for demonstration or educational purposes and protects the data on your computer from accidental or intentional damage. To enable this mode, specify the *IsPlayground* field as *true* in the [*Settings*](reference.md) structure when launching a script using the *Run* function. In addition, it is recommended to reduce the *Cycle* and *Depth* parameters to set limits on resources consumed.
 
 Scripts working in the *Playground* mode have the following restrictions:
 
