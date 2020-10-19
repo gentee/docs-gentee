@@ -52,6 +52,9 @@ The _Settings_ type is used to specify additional parameters when starting the b
   * *AllSizeLimit* int64 - total size of files. By default, it is 10 MB.
   * *FilesLimit* int - maximum number of files. By default, 100.
   * *SizeLimit* int64 - maximum file size. By default, 5 MB.
+* **ProgressFunc** gentee.ProgressFunc - a function for displaying the progress of copying, downloading, etc., for example, as a progress bar. The function must be of the following type:  
+_func MyProgress(progress *gentee.Progress) bool_  
+and return *true*. The *Progress* type is described below.
 
 ``` go
     settings.SysChan = make(chan int)
@@ -60,6 +63,27 @@ The _Settings_ type is used to specify additional parameters when starting the b
     }()
     settings.SysChan <- gentee.SysTerminate
 ```
+
+### Progress
+
+The _Progress_ type is used to display the process of copying, downloading. A variable of this type is passed to the _ProgressFunc_ function and has the following fields:
+
+* **ID uint32** - unique identifier.
+* **Type int32** - process type.
+  * *ProgressCopy (0)* - copying.
+  * *ProgressDownload (1)* - downloading.
+  * *ProgressCompress (2)* - compression.
+  * *ProgressDecompress (3)* - unpacking.
+* **Status int32** - status.
+  * *ProgressStart (0)* - the beginning of the process.
+  * *ProgressActive (1)* - the process is in progress.  
+  * *ProgressEnd (2)* - the process is over.  
+* **Total int64** - total size.
+* **Current int64** - current size.
+* **Source string** - source file (object).
+* **Dest string** - target file (object).
+* **Ratio float64** - *Current/Total* ratio. To get percent you need to multiply by 100.
+* **Custom interface{}** - serves to store any additional information.
 
 ## Functions and methods
 
