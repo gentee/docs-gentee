@@ -19,6 +19,7 @@ Operators and functions for working with strings \(**str** type\) are described 
 * [Repeat\( str s, int count \) str](string.md#repeat-str-s-int-count-str)
 * [Replace\( str s, str old, str new \) str](string.md#replace-str-s-str-old-str-new-str)
 * [Right\( str s, int i \) string](string.md#right-str-s-int-i-str)
+* [Size\( int size, str format \) string](string.md#size-int-size-str-format-str)
 * [Split\( str s, str sep \) arr.str](string.md#split-str-s-str-sep-arrstr)
 * [Substr\( str s, int off, int length \) str](string.md#substr-str-s-int-off-int-length-str)
 * [Trim\( str s, str cutset \) str](string.md#trim-str-s-str-cutset-str)
@@ -140,6 +141,15 @@ The _Replace_ function returns a copy of the string _s_ with all _old_ strings r
 ### Right\(str s, int i\) str
 
 The _Right_ function returns a substring of the last _i_ characters of the _s_ string.
+
+### Size\(int size, str format\) str
+
+The _Size_ function returns the rounded size as a string. In the _format_ parameter specify an output pattern for a decimal floating-point number and a string. If _format_ is an empty string, the format *%.2f%s* is used.
+
+``` go
+Print( Size(956348901, `%.1f %s `) + Size(62, `%[2]s%.2[1]f `) + Size(123789, ``))
+// 912.0 MB B62 120.89KB
+```
 
 ### Split\(str s, str sep\) arr.str
 
