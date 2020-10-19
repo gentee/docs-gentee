@@ -1,7 +1,3 @@
----
-nav: toc
----
-
 # Path
 
 The functions for manipulating filename paths are described here.

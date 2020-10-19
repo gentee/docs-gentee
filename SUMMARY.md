@@ -34,6 +34,7 @@
   * [Runtime](stdlib/runtime.md)
   * [Sets](stdlib/sets.md)
   * [Strings](stdlib/string.md)
+  * [System](stdlib/system.md)
   * [Time](stdlib/time.md)
 * [Go Integration](golang/README.md)
   * [Reference](golang/reference.md)
