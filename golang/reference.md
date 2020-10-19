@@ -5,6 +5,7 @@ The functions and structures for using the **Gentee** programming language in **
 * [type Custom](reference.md#type-custom)
 * [type EmbedItem](reference.md#type-embed-item)
 * [type Settings](reference.md#type-settings)
+* [type Progress](reference.md#type-progress)
 * [Customize\(custom \*Custom\) error](reference.md#customize-custom-custom-error)
 * [New\(\) \*Gentee](reference.md#new-gentee)
 * [\(g \*Gentee\) Compile\(input, path string\) \(\*Exec, int, error\)](reference.md#g-gentee-compile-input-path-string-exec-int-error)
@@ -64,7 +65,7 @@ and return *true*. The *Progress* type is described below.
     settings.SysChan <- gentee.SysTerminate
 ```
 
-### Progress
+### type Progress
 
 The _Progress_ type is used to display the process of copying, downloading. A variable of this type is passed to the _ProgressFunc_ function and has the following fields:
 
