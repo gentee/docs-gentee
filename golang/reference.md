@@ -55,7 +55,7 @@ The _Settings_ type is used to specify additional parameters when starting the b
   * *SizeLimit* int64 - maximum file size. By default, 5 MB.
 * **ProgressFunc** gentee.ProgressFunc - a function for displaying the progress of copying, downloading, etc., for example, as a progress bar. The function must be of the following type:  
 _func MyProgress(progress *gentee.Progress) bool_  
-and return *true*. The *Progress* type is described below.
+and return *true*. The *Progress* type is described below. The _ProgressFunc_ function is called when copying, downloading files or also when calling the [Progress](/stdlib/runtime.md#progress-int-id-inc) function.
 
 ``` go
     settings.SysChan = make(chan int)
@@ -76,9 +76,9 @@ The _Progress_ type is used to display the process of copying, downloading. A va
   * *ProgressCompress (2)* - compression.
   * *ProgressDecompress (3)* - unpacking.
 * **Status int32** - status.
-  * *ProgressStart (0)* - the beginning of the process.
-  * *ProgressActive (1)* - the process is in progress.  
-  * *ProgressEnd (2)* - the process is over.  
+  * *ProgStatusStart (0)* - the beginning of the process.
+  * *ProgStatusActive (1)* - the process is in progress.  
+  * *ProgStatusEnd (2)* - the process is over.  
 * **Total int64** - total size.
 * **Current int64** - current size.
 * **Source string** - source file (object).

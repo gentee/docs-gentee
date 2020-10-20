@@ -11,6 +11,9 @@ The functions for working with a virtual machine during script execution are des
 * [ErrText\( error err \) str](runtime.md#errtext-error-err-str)
 * [ErrTrace\( error err \) arr.trace](runtime.md#errtrace-error-err-arr-trace)
 * [exit\( int code \)](runtime.md#exit-int-code)
+* [Progress\( int id inc \)](runtime.md#progress-int-id-inc)
+* [ProgressEnd\( int id \)](runtime.md#progressend-int-id)
+* [ProgressStart\( int total ptype, str src dest \) int](runtime.md#progressstart-int-total-ptype-str-src-dest-int)
 * [Trace\(\) arr.trace](runtime.md#trace-arr-trace)
 
 ## Types
@@ -88,7 +91,27 @@ run int {
 }
 ```
 
+### Progress\( int id inc \)
+
+The _Progress_ function increases the process counter by the value of parameter _inc_. _id_ is the progress bar identifier returned by the _ProgressStart_ function. The _Progress_ function calls Go function _ProgressFunc_ which must be defined in the settings when the script starts.
+
+``` go
+  int total = 200
+  int prog = ProgressStart(total, 100, `counter`, ``)
+  for i in 1...5 {
+    Progress(prog, 40)
+  }
+  ProgressEnd(prog)
+```
+
+### ProgressEnd\( int id \)
+
+The _ProgressEnd_ function removes the process counter with the _id_ identifier.
+
+### ProgressStart\( int total ptype, str src dest \) int
+
+The _ProgressStart_ function creates a process counter and returns its identifier. _total_ is the maximum counter value. _ptype_ - counter type, can be any number. _src_ is the name of the source. _dest_ is the name of the target. The functions for working with the progress bar do not display anything, they call the _ProgressFunc_ function, which should be defined in [settings](/golang/reference.md) when running the script. In the _ProgressFunc_ function you can display the state of the process in a way that is convenient for you. After you have finished working with this counter you must call _ProgressEnd_ to delete it.
+
 ### Trace\(\) arr.trace
 
 The _Trace_ function returns a stack of called functions.
-
