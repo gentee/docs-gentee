@@ -13,6 +13,7 @@ The operators and functions for working with objects are described here.
 * [IsNil\( obj o \) bool](obj.md#isnil-obj-o-bool)
 * [item\( obj o, int i \) obj](obj.md#item-obj-o-int-i-obj)
 * [item\( obj o, str s \) obj](obj.md#item-obj-o-str-s-obj)
+* [map\( obj o \) map.obj](obj.md#map-obj-o-map-obj)
 * [obj\( arr.typename a \) obj](obj.md#obj-arr-typename-a-obj)
 * [obj\( bool b \) obj](obj.md#obj-bool-b-obj)
 * [obj\( float f \) obj](obj.md#obj-float-f-obj)
@@ -88,6 +89,10 @@ The _item_ function returns the i-th element of the object. The object must be o
 ### item\(obj o, str s\) obj
 
 The _item_ function returns the value of key **s**. The object must be of **map.obj** type. If there is no element, it returns an empty object.
+
+### map\(obj o\) map.obj
+
+The _map_ function returns an associative array of objects. The _o_ object must be an associative array (map), otherwise an error is returned. When the function is called, no new array is created, but the current *map* which contains object _o_ is returned.
 
 ### obj\(arr.typename a\) obj
 
