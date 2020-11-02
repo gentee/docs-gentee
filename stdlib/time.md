@@ -15,6 +15,7 @@ Operators and functions for working with date and time \(**time** type\) are des
 * [Format\( str layout, time t \) str](time.md#format-str-layout-time-t-str)
 * [Now\( \) time](time.md#now-time)
 * [ParseTime\( str layout, str value \) time](time.md#parsetime-str-layout-str-value-time)
+* [str\( time t \) str](time.md#str-time-t-str)
 * [UTC\( time t \) time](time.md#utc-time-t-time)
 * [Weekday\( time t \) int](time.md#weekday-time-t-int)
 * [YearDay\( time t \) int](time.md#yearday-time-t-int)
@@ -120,6 +121,10 @@ run str {
 }
 // 19/06/07 03:05:00 +0000 19/05/29 03:21:03
 ```
+
+### str(time t) str
+
+The _str_ converts the specified time to a string in the format **YYYY-MM-DD HH:mm:ss**.
 
 ### UTC\(time t\) time
 
