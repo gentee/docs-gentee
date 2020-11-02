@@ -3,6 +3,7 @@
 The **obj** type is used to store values of the following types - **int, bool, float, str, arr.obj, map.obj**. If no value is assigned to the object, then it is equal to **nil**. An object can be assigned values of a type that is different from the current one.  
 The operators and functions for working with objects are described here.
 
+* [arr\( obj o \) arr.obj](obj.md#arr-obj-o-arr-obj)
 * [bool\( obj o \) bool](obj.md#bool-obj-o-bool)
 * [bool\( obj o, bool def \) bool](obj.md#bool-obj-o-bool-def-bool)
 * [float\( obj o \) float](obj.md#float-obj-o-float)
@@ -22,6 +23,12 @@ The operators and functions for working with objects are described here.
 * [str\( obj o, str def \) str](obj.md#str-obj-o-str-def-str)
 * [Type\( obj o \) str](obj.md#type-obj-o-str)
 
+## Types
+
+### fn cmpobjfunc(obj, obj) int
+
+The **cmpobjtype** function type is used to compare two objects. Functions of this type are used to sort objects in an array.
+
 ## Operators
 
 | Operator | Result | Description |
@@ -39,6 +46,10 @@ The operators and functions for working with objects are described here.
 | obj **\[** int/str **\]** | obj | Assign / get the value of an array by index. If the object is not _arr.obj_ or _map.obj_, then an error occurs. |
 
 ## Functions
+
+### arr\(obj o\) arr.obj
+
+The _arr_ function returns an array of objects. Object _o_ must be an array, otherwise it returns an error. Calling the function does not create a new array, but returns the current array that contains the _o_ object.
 
 ### bool\(obj o\) bool
 
@@ -99,6 +110,25 @@ The _obj_ function converts an associative array of the _map_ type into an objec
 ### obj\(str s\) obj
 
 The _obj_ function creates an object with the specified **str** value.
+
+### Sort\(arr.obj o, cmpobjfunc cmpfunc\) arr.obj
+
+The _Sort_ function sorts an array of objects and returns it. Sorting is done using a function of **cmpobjfunc** type.
+
+``` go
+func mySort(obj left, obj right) int {
+  if str(left) < str(right) : return -1
+  if str(left) > str(right) : return 1
+  return 0
+}
+
+run str {
+  arr a = {"qwr","7","10","ab","тест","абв", "ka"}
+  obj o = a
+  Sort( arr(o), &mySort.cmpobjfunc )
+  ...
+}
+```
 
 ### str\(obj o\) str
 
