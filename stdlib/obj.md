@@ -19,6 +19,7 @@ The operators and functions for working with objects are described here.
 * [obj\( int i \) obj](obj.md#obj-int-i-obj)
 * [obj\( map.typename m \) obj](obj.md#obj-map-typename-m-obj)
 * [obj\( str s \) obj](obj.md#obj-str-s-obj)
+* [Sort\( arr.obj o, cmpobjfunc cmpfunc \) arr.obj](obj.md#sort-arr-obj-o-cmpobjfunc-cmpfunc-arr-obj)
 * [str\( obj o \) str](obj.md#str-obj-o-str)
 * [str\( obj o, str def \) str](obj.md#str-obj-o-str-def-str)
 * [Type\( obj o \) str](obj.md#type-obj-o-str)
@@ -42,6 +43,7 @@ The **cmpobjtype** function type is used to compare two objects. Functions of th
 | obj **=** map.typename | obj | Assigning an associative array to an object. |
 | obj **=** obj | obj | Assignment operator. |
 | obj **=** str | obj | Assigning a string to an object. |
+| obj **+=** obj | obj | Adding an object to an array of objects. |
 | obj **&=** obj | obj | Creates a clone of the object. The new variable will work with the same data set. |
 | obj **\[** int/str **\]** | obj | Assign / get the value of an array by index. If the object is not _arr.obj_ or _map.obj_, then an error occurs. |
 
