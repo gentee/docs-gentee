@@ -4,6 +4,7 @@ The **obj** type is used to store values of the following types - **int, bool, f
 The operators and functions for working with objects are described here.
 
 * [arr\( obj o \) arr.obj](obj.md#arr-obj-o-arr-obj)
+* [arrstr\( obj o \) arr.str](obj.md#arrstr-obj-o-arr-str)
 * [bool\( obj o \) bool](obj.md#bool-obj-o-bool)
 * [bool\( obj o, bool def \) bool](obj.md#bool-obj-o-bool-def-bool)
 * [float\( obj o \) float](obj.md#float-obj-o-float)
@@ -55,6 +56,10 @@ The **cmpobjtype** function type is used to compare two objects. Functions of th
 ### arr\(obj o\) arr.obj
 
 The _arr_ function returns an array of objects. Object _o_ must be an array, otherwise it returns an error. Calling the function does not create a new array, but returns the current array that contains the _o_ object.
+
+### arrstr\(obj o\) arr.str
+
+The _arrstr_ function converts an array of objects into an array of strings. The _o_ object must be an array, otherwise an error is returned. The function returns the resulting array of strings.
 
 ### bool\(obj o\) bool
 

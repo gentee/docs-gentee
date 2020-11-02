@@ -17,6 +17,7 @@ Functions for working with files and directories are described here.
 * [FileMode\( str name \) int](file.md#filemode-str-name-int)
 * [GetCurDir\(\) str](file.md#getcurdir-str)
 * [Md5File\( str filename \) str](file.md#md-5-file-str-filename-str)
+* [obj\( finfo fi \) obj](file.md#obj-finfo-fi-obj)
 * [ReadDir\( str dirname \) arr.finfo](file.md#readdir-str-dirname-arr-finfo)
 * [ReadDir\( str dirname, int flags, str pattern \) arr.finfo](file.md#readdir-str-dirname-int-flags-str-pattern-arr-finfo)
 * [ReadFile\( str filename \) str](file.md#readfile-str-filename-str)
@@ -89,6 +90,10 @@ The _GetCurDir_ function returns the current directory.
 ### Md5File\(str filename\) str
 
 The _Md5File_ function returns the MD5 hash of the specified file as a hex string.
+
+### obj\(finfo fi\) obj
+
+The _obj_ function converts a variable of finfo type into an object. The resulting object has fields: *name, size, mode, time, isdir, dir*.
 
 ### ReadDir\(str dirname\) arr.finfo
 
