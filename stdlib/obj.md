@@ -10,6 +10,8 @@ The operators and functions for working with objects are described here.
 * [float\( obj o, float def \) float](obj.md#float-obj-o-float-def-float)
 * [int\( obj o \) int](obj.md#int-obj-o-int)
 * [int\( obj o, int def \) int](obj.md#int-obj-o-int-def-int)
+* [IsArray\( obj o \) bool](obj.md#isarray-obj-o-bool)
+* [IsMap\( obj o \) bool](obj.md#ismap-obj-o-bool)
 * [IsNil\( obj o \) bool](obj.md#isnil-obj-o-bool)
 * [item\( obj o, int i \) obj](obj.md#item-obj-o-int-i-obj)
 * [item\( obj o, str s \) obj](obj.md#item-obj-o-str-s-obj)
@@ -77,6 +79,14 @@ The _int_ function converts an object to an integer. The object must contain a v
 ### int\(obj o, int def\) int
 
 The _int_ function converts an object to an integer. If the object is not defined, the second parameter is returned. 
+
+### IsArray\(obj o\) bool
+
+The _IsArray_ function returns _true_ if the object is an array. Otherwise, the function returns _false_.
+
+### IsMap\(obj o\) bool
+
+The _IsMap_ function returns _true_ if the object is an associative array (map). Otherwise, the function returns _false_.
 
 ### IsNil\(obj o\) bool
 
