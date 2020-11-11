@@ -21,6 +21,7 @@ Functions for working with files and directories are described here.
 * [obj\( finfo fi \) obj](file.md#obj-finfo-fi-obj)
 * [ReadDir\( str dirname \) arr.finfo](file.md#readdir-str-dirname-arr-finfo)
 * [ReadDir\( str dirname, int flags, str pattern \) arr.finfo](file.md#readdir-str-dirname-int-flags-str-pattern-arr-finfo)
+* [ReadDir\( str dirname, int flags, arr.str patterns, arr.str ignore \) arr.finfo](file.md#readdir-str-dirname-int-flags-arr-str-patterns-arr-str-ignore-arr-finfo)
 * [ReadFile\( str filename \) str](file.md#readfile-str-filename-str)
 * [ReadFile\( str filename, buf out \) buf](file.md#readfile-str-filename-buf-out-buf)
 * [ReadFile\( str filename, int offset, int length \) buf](file.md#readfile-str-filename-int-offset-int-length-buf)
@@ -125,6 +126,18 @@ for item in ReadDir(ftemp, RECURSIVE, `*fold*`) {
     ret += item.Name
 }
 for item in ReadDir(ftemp, RECURSIVE | ONLYFILES | REGEXP, `.*\.pdf`) {
+    ret += item.Name
+}
+```
+
+### ReadDir\(str dirname, int flags, arr.str patterns, arr.str ignore\) arr.finfo
+
+The _ReadDir_ function reads the *dirname* directory with the specified name and returns the list of its subdirectories and files according to the specified parameters. The parameter *flags* is described above. The *patterns* parameter is an array of strings and may contain file masks or regular expressions. The *ignore* parameter also contains file wildcards or regular expressions, but such files or directories will be skipped. If you want to specify a regular expression in these arrays, enclose it between **'/'** characters.
+
+``` go
+arr.str aignore = {`/txt/`, `*.pak`}
+arr.str amatch = {`/\d+/`, `*.p?`, `/di/`}.
+for item in ReadDir(ftemp, RECURSIVE, amatch, aignore) {
     ret += item.Name
 }
 ```
