@@ -110,7 +110,10 @@ The _ReadDir_ function reads the *dirname* directory with the specified name and
 
 * **RECURSIVE** - In this case there will be a recursive search for all subdirectories.
 * **ONLYFILES** - The returned array will contain only files.
+* **ONLYDIRS** - The returned array will contain only directories.
 * **REGEXP** - The *pattern* parameter contains a regular expression for matching file names.
+
+If you specify the **ONLYFILES** and **ONLYDIRS** flags at the same time, the files and directories will be searched.
 
 The *pattern* parameter can contain a wildcard for files or a regular expression. In this case, the files and directories that match the specified pattern will be returned. The wildcard can contain the following characters:
 
