@@ -6,12 +6,22 @@ nav: toc
 
 Functions for working with regular expressions are described here.
 
+* [FindFirstRegExp\( str src, str re \) arr.str](regexp.md#findfirstregexp-str-src-str-re-arr-str)
 * [FindRegExp\( str src, str re \) arr.arr.str](regexp.md#findregexp-str-src-str-re-arr-arr-str)
 * [Match\( str s, str re \) bool](regexp.md#match-str-s-str-re-bool)
 * [RegExp\( str src, str re \) str](regexp.md#regexp-str-src-str-re-str)
 * [ReplaceRegExp\( str src, str re, str repl \) str](regexp.md#replaceregexp-str-src-str-re-str-repl-str)
 
 ## Functions
+
+### FindFirstRegExp\(str src, str re\) arr.str
+
+The _FindFirstRegExp_ function finds the first occurrence of the regular expression _re_ in the specified string _src_. The function returns an array of strings. The first element contains a substring that matches the regular expression, the remaining elements contain values of **(...)** groups, if they are defined in the regular expression.
+
+```go
+arr.str a &= FindFirstRegExp(`This45i33s a isi777s inis1i2sg`, `is(\d*)i(\d+)s`)
+// a = {`is45i33s`, `45`, `33`}
+```
 
 ### FindRegExp\(str src, str re\) arr.arr.str
 
