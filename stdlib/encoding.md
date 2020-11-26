@@ -46,7 +46,7 @@ The _StructDecode_ function converts the binary data of a *buf* variable to the 
 
 ### StructEncode\( struct s \) buf
 
-The _StructEncode_ function converts a structured variable to binary and stores the result into a *buf* variable. The function saves only fields of the following types: **int, bool, char, float, buf, str**. Fields of other types are skipped.
+The _StructEncode_ function converts a structure variable to binary and stores the result into a *buf* variable. The function saves only fields of the following types: **int, bool, char, float, buf, str**. Fields of other types are skipped.
 
 ``` go
 struct tmp {
