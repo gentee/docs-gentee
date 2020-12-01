@@ -15,8 +15,10 @@ Operators and functions for working with an array of bytes \(**buf** type\) are 
 * [EncodeInt\( buf b, int i \) buf](buffer.md#encodeint-buf-b-int-i-buf)
 * [Hex\( buf b \) str](buffer.md#hex-buf-b-str)
 * [Insert\( buf b, int off, buf src\) buf](buffer.md#insert-buf-b-int-off-buf-src-buf)
+* [SetLen\( buf b, int size \) buf](buffer.md#setlen-buf-b-int-size-buf)
 * [UnBase64\( str s \) buf](buffer.md#unbase-64-str-s-buf)
 * [UnHex\( str s \) buf](buffer.md#unhex-str-s-buf)
+* [Write\( buf b, int off, buf src \) buf](buffer.md#write-buf-b-int-off-buf-src-buf)
 
 ## Operators
 
@@ -71,6 +73,10 @@ The _Hex_ function encodes a _buf_ value to a hexadecimal string and returns it.
 
 The _Insert_ function inserts an array of bytes _src_ into the array _b_. _off_ is the offset where the specified byte array will be inserted. The function returns the variable _b_.
 
+### SetLen\(buf b, int size\) buf
+
+The _SetLen_ function sets the size of the buffer. If _size_ is less than the size of the buffer, then it will be truncated. Otherwise, the buffer will be padded with zeros to the specified size.
+
 ### UnBase64\(str s\) buf
 
 The _UnBase64_ function converts a string in __base64__ encoding into a value of the _buf_ type and returns it.
@@ -78,3 +84,7 @@ The _UnBase64_ function converts a string in __base64__ encoding into a value of
 ### UnHex\(str s\) buf
 
 The _UnHex_ function returns the _buf_ value represented by the hexadecimal string _s_. The input string must contain only hexadecimal characters.
+
+### Write\(buf, int off, buf src\) buf
+
+The _Write_ function writes the byte array of the _src_ variable into the _b_ variable starting from the specified offset. The data is written over existing values. The function returns variable _b_.
