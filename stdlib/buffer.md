@@ -10,7 +10,9 @@ Operators and functions for working with an array of bytes \(**buf** type\) are 
 * [buf\( str s \) buf](buffer.md#buf-str-s-buf)
 * [str\( buf b \) str](buffer.md#str-buf-b-str)
 * [Base64\( buf b \) str](buffer.md#base-64-buf-b-str)
+* [DecodeInt\( buf b, int offset \) int](buffer.md#decodeint-buf-b-int-offset-int)
 * [Del\( buf b, int off, int length \) buf](buffer.md#del-buf-b-int-off-int-length-buf)
+* [EncodeInt\( buf b, int i \) buf](buffer.md#encodeint-buf-b-int-i-buf)
 * [Hex\( buf b \) str](buffer.md#hex-buf-b-str)
 * [Insert\( buf b, int off, buf src\) buf](buffer.md#insert-buf-b-int-off-buf-src-buf)
 * [UnBase64\( str s \) buf](buffer.md#unbase-64-str-s-buf)
@@ -49,9 +51,17 @@ The _str_ function converts a _buf_ value to a string and returns it.
 
 The _Base64_ function converts a value of the _buf_ type into a string in __base64__ encoding and returns it.
 
+### DecodeInt\(buf b, int offset\) int
+
+The _DecodeInt_ function gets an integer from a parameter of _buf_ type.  _offset_ is the offset in the buffer at which to read the number. The function reads 8 bytes and returns them as an integer.
+
 ### Del\(buf b, int off, int length\) buf
 
 The _Del_ function removes part of the data from the byte array. _off_ is the offset of the data to be deleted, _length_ is the number of bytes to be deleted. If _length_ is less than zero, then the data will be deleted to the left of the specified offset. The function returns the _b_ variable in which the deletion occurred.
+
+### EncodeInt\(buf b, int i\) buf
+
+The _EncodeInt_ function adds an integer number to a specified variable of _buf_ type. Since the *int* value occupies 8 bytes, 8 bytes are appended to the buffer regardless of the _i_ parameter value. The function returns the *b* parameter.
 
 ### Hex\(buf b\) str
 
