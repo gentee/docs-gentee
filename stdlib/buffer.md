@@ -61,7 +61,7 @@ The _Del_ function removes part of the data from the byte array. _off_ is the of
 
 ### EncodeInt\(buf b, int i\) buf
 
-The _EncodeInt_ function adds an integer number to a specified variable of _buf_ type. Since the *int* value occupies 8 bytes, 8 bytes are appended to the buffer regardless of the _i_ parameter value. The function returns the *b* parameter.
+The _EncodeInt_ function appends an integer number to a specified variable of _buf_ type. Since the *int* value occupies 8 bytes, 8 bytes are appended to the buffer regardless of the _i_ parameter value. The function returns the *b* parameter.
 
 ### Hex\(buf b\) str
 
@@ -78,4 +78,3 @@ The _UnBase64_ function converts a string in __base64__ encoding into a value of
 ### UnHex\(str s\) buf
 
 The _UnHex_ function returns the _buf_ value represented by the hexadecimal string _s_. The input string must contain only hexadecimal characters.
-
