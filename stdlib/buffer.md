@@ -85,6 +85,6 @@ The _UnBase64_ function converts a string in __base64__ encoding into a value of
 
 The _UnHex_ function returns the _buf_ value represented by the hexadecimal string _s_. The input string must contain only hexadecimal characters.
 
-### Write\(buf, int off, buf src\) buf
+### Write\(buf b, int off, buf src\) buf
 
 The _Write_ function writes the byte array of the _src_ variable into the _b_ variable starting from the specified offset. The data is written over existing values. The function returns variable _b_.
