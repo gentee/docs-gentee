@@ -16,6 +16,7 @@ Operators and functions for working with an array of bytes \(**buf** type\) are 
 * [Hex\( buf b \) str](buffer.md#hex-buf-b-str)
 * [Insert\( buf b, int off, buf src\) buf](buffer.md#insert-buf-b-int-off-buf-src-buf)
 * [SetLen\( buf b, int size \) buf](buffer.md#setlen-buf-b-int-size-buf)
+* [Subbuf\( buf b, int off, int length \) buf](buffer.md#subbuf-buf-b-int-off-int-length-buf)
 * [UnBase64\( str s \) buf](buffer.md#unbase-64-str-s-buf)
 * [UnHex\( str s \) buf](buffer.md#unhex-str-s-buf)
 * [Write\( buf b, int off, buf src \) buf](buffer.md#write-buf-b-int-off-buf-src-buf)
@@ -76,6 +77,10 @@ The _Insert_ function inserts an array of bytes _src_ into the array _b_. _off_ 
 ### SetLen\(buf b, int size\) buf
 
 The _SetLen_ function sets the size of the buffer. If _size_ is less than the size of the buffer, then it will be truncated. Otherwise, the buffer will be padded with zeros to the specified size.
+
+### Subbuf\(buf b, int off, int length\) buf
+
+The _Subbuf_ function returns a new buffer that contains the chunk of the _b_ buffer with the specified offset and length.
 
 ### UnBase64\(str s\) buf
 
