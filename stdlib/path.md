@@ -8,6 +8,7 @@ The functions for manipulating filename paths are described here.
 * [Ext\( str path \) str](path.md#ext-str-path-str)
 * [JoinPath\( str path... \) str](path.md#joinpath-str-path-str)
 * [MatchPath\( str pattern, str path \) bool](path.md#matchpath-str-pattern-str-path-bool)
+* [Path\( finfo fi \) str](path.md#path-finfo-fi-str)
 
 ## Functions
 
@@ -33,7 +34,7 @@ The _JoinPath_ function joins any number of path elements into a single path, ad
 
 ### MatchPath\(str pattern, str path\) bool
 
-The _MatchPath_ function checks if the given name matches the specified pattern. The function checks the pattern completely for the specified path, not for the substring.
+The _MatchPath_ function checks if the given name matches the specified pattern. The function checks the pattern completely for the specified path, not for the substring. You can use a regular expression as a pattern. To do this, add a */* at the beginning and end.
 
 * '\*' - matches any sequence of non-separator characters
 * '?' - matches any single non-separator character
@@ -43,5 +44,10 @@ MatchPath(`*.txt`, `myfile.txt`)       // true
 MatchPath(`?a?.pdf`, `1ab.pdf`)        // true
 MatchPath(`/home/ak/my.pdf`, `*.pdf`)         // false
 MatchPath(`/home/ak/my.pdf`, `/home/*/my.*`)  // true
+MatchPath(`/home/ak/my.pdf`, `/home/*/my.*`) // true
+MatchPath(`/user/`, `/home/user/myfile`) // true
 ```
 
+### Path\(finfo fi\) str
+
+The _Path_ function concatenates the *Name* and *Dir* fields of the *finfo* variable and returns the resulting path.
