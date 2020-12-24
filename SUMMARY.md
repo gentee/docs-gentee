@@ -12,6 +12,7 @@
   * [Multithreading](syntax/multithreading.md)
   * [Include and import](syntax/include-and-import.md)
 * [Standard Library Reference](stdlib/README.md)
+  * [Archiving](stdlib/archive.md)
   * [Array](stdlib/array.md)
   * [Boolean](stdlib/bool.md)
   * [Buffer](stdlib/buffer.md)
