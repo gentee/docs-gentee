@@ -10,7 +10,7 @@ TypeName  = identifier { "." identifier }
 
 The Gentee language predeclares the following types.
 
-**arr bool buf char error finfo float int map obj range set str time trace thread**
+**arr bool buf char error finfo float handle int map obj range set str time trace thread**
 
 | Name | Description | Values | Initial value |
 | :--- | :--- | :--- | :--- |
@@ -24,6 +24,9 @@ The Gentee language predeclares the following types.
 | **buf** | array of bytes | array of uint8 | empty array |
 | **set** | set of bool | array of uint64 with 1 bit per value | empty set |
 | **obj** | object | int, bool, float, str, arr.obj, map.obj | nil |
+| **handle** | hidden type | any Golang type | nil |
+
+The **handle** type is used to pass values between built-in Golang functions. A variable of this type can contain a value of any Golang type. Go functions should keep track of the types of received values, which are described as *handle* in Gentee.
 
 ```go
 arr.map.int a
