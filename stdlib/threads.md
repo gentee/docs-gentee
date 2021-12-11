@@ -8,9 +8,11 @@ Operators and functions for working with threads \(**thread** type\) are describ
 
 * [Lock\(\)](threads.md#lock)
 * [resume\( thread th \)](threads.md#resume-thread-th)
+* [SetThreadData\(obj o\)](threads.md#setthreaddata-obj-o)
 * [sleep\( int duration \)](threads.md#sleep-int-duration)
 * [suspend\( thread th \)](threads.md#suspend-thread-th)
 * [terminate\( thread th \)](threads.md#terminate-thread-th)
+* [ThreadData\(\) obj](threads.md#threaddata-obj)
 * [Unlock\(\)](threads.md#unlock)
 * [wait\( thread th \)](threads.md#wait-thread-th)
 * [WaitAll\(\)](threads.md#waitall)
@@ -33,6 +35,10 @@ The _Lock_ function blocks access to the global resource (mutex). If it is alrea
 
 The _resume_ function continues the work of the thread that was stopped by _suspend_ function.
 
+### SetThreadData\(obj o\)
+
+The _SetThreadData_ function assigns a variable of type _obj_ to the current thread. The value of the variable can be retrieved with the _ThreadData_ function.
+
 ### sleep\(int duration\)
 
 The _sleep_ function pauses the current thread for at least the _duration_, in milliseconds.
@@ -44,6 +50,10 @@ The _suspend_ function suspends the _th_ thread. Use the _resume_ function to co
 ### terminate\(thread th\)
 
 The _terminate_ function terminates the thread. If the thread has already completed, the function does nothing.
+
+### ThreadData\(\) obj
+
+The _ThreadData_ function returns the object that was assigned to the current thread. A variable of type _obj_ is assigned to the thread by the function _SetThreadData_.
 
 ### Unlock\(\)
 
